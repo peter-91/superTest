@@ -1,22 +1,22 @@
 import Base.BasePage;
 import Base.BaseTest;
-import Pages.LoginPage;
+import Pages.MainPage;
 import org.testng.annotations.Test;
 
 @Test
-public class LoginPageTest extends BaseTest {
+public class MainPageTest extends BaseTest {
 
-    private  LoginPage loginPage;
+    private MainPage mainPage;
     private BasePage basePage;
 
 
 
     public void loginTest() {
-        loginPage = new LoginPage(getDriver());
+        mainPage = new MainPage(getDriver());
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
-        loginPage.typeEmail();
-    loginPage.typePassword();
-    loginPage.clickSignIn();
+        mainPage.typeEmail();
+    mainPage.typePassword();
+    mainPage.clickSignIn();
     }
 }
