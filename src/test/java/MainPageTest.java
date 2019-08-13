@@ -15,8 +15,6 @@ public class MainPageTest extends BaseTest {
         mainPage = new MainPage(getDriver());
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
-        mainPage.typeEmail();
-    mainPage.typePassword();
-    mainPage.clickSignIn();
+        mainPage.
     }
 }

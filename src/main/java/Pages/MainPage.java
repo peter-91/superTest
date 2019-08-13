@@ -9,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage extends BasePage {
 
     public WebDriver driver;
+    public String email;
+    public String password;
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -28,17 +30,22 @@ public class MainPage extends BasePage {
 
 
 
-    public void typeEmail() {
-    sendKeys(loginField, "tunein.user125@gmail.com");
+    private void typeEmail(String email) {
+    sendKeys(loginField, email);
     }
 
-    public void typePassword() {
-        sendKeys(passwordField, "Tunein123");
+    private void typePassword(String password) {
+        sendKeys(passwordField, password);
     }
 
-    public void clickSignIn() {
+    private void clickSignIn() {
         clickOnElement(loginButton);
     }
 
+    private void logIn() {
+        typeEmail(email);
+        typePassword(password);
+        clickSignIn();
+    }
 }
 

@@ -3,11 +3,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BasePage extends BaseTest {
+public class BasePage {
     private WebDriver driver;
 
+
     public BasePage(){
-        driver = getDriver();
+        driver = BaseTest.getDriver();
 
     }
 
