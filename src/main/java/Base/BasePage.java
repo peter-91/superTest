@@ -2,7 +2,7 @@ package Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.FindBy;
 public class BasePage {
     private WebDriver driver;
 
@@ -30,6 +30,14 @@ public class BasePage {
     public void openURL(String URL) {
         driver.get(URL);
     }
+
+    private boolean isElementPresented(WebElement) {
+        driver.
+    }
+
+
+
+
 
 }
 

@@ -1,6 +1,7 @@
 package Pages;
 
 import Base.BasePage;
+import org.jcp.xml.dsig.internal.SignerOutputStream;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,14 +31,17 @@ public class MainPage extends BasePage {
 
 
     private void typeEmail(String email) {
+        System.out.println("Sending Email" + email);
         sendKeys(loginField, email);
     }
 
     private void typePassword(String password) {
+        System.out.println("Sending Password" + password);
         sendKeys(passwordField, password);
     }
 
     private void clickSignIn() {
+        System.out.println("Click on Submit button");
         clickOnElement(loginButton);
     }
 
