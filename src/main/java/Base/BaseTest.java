@@ -18,7 +18,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().setSize(new Dimension(1920, 1080));
+        driver.manage().window().setSize(new Dimension(1280, 1024));
         DRIVER.set(driver);
     }
 

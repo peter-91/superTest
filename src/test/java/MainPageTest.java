@@ -1,8 +1,13 @@
 import Base.BasePage;
 import Base.BaseTest;
 import Pages.MainPage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertTrue;
 
 @Test
 public class MainPageTest extends BaseTest {
@@ -13,11 +18,13 @@ public class MainPageTest extends BaseTest {
     private final String PASSWORD = "Tunein123";
 
 
+
     public void loginTest() {
         mainPage = new MainPage(getDriver());
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
         mainPage.logIn(EMAIL, PASSWORD);
+        assertTrue(basePage.isElementPresent(By.xpath("//*[@data-testid='AppTabBar_Home_Link']")), "Oops! Some troubles(");
 
     }
 }

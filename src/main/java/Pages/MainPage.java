@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage extends BasePage {
 
+
     public WebDriver driver;
 
 
@@ -17,10 +18,10 @@ public class MainPage extends BasePage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@placeholder='Phone, email, or username']")
+    @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@class='text-input email-input js-signin-email']")
     private WebElement loginField;
 
-    @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@placeholder='Password']")
+    @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@class='text-input']")
     private WebElement passwordField;
 
     @FindBy(xpath = "//input[@class='EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit']")
@@ -31,12 +32,12 @@ public class MainPage extends BasePage {
 
 
     private void typeEmail(String email) {
-        System.out.println("Sending Email" + email);
+        System.out.println("Sending Email: " + email);
         sendKeys(loginField, email);
     }
 
     private void typePassword(String password) {
-        System.out.println("Sending Password" + password);
+        System.out.println("Sending Password: " + password);
         sendKeys(passwordField, password);
     }
 
@@ -50,5 +51,7 @@ public class MainPage extends BasePage {
         typePassword(password);
         clickSignIn();
     }
+
+
 }
 
