@@ -15,7 +15,7 @@ public class MainPageTest extends BaseTest {
     private MainPage mainPage;
     private BasePage basePage;
     private final String EMAIL = "tunein.user125@gmail.com";
-    private final String PASSWORD = "Tunein123";
+    private final String PASSWORD = "unein123";
 
 
 
@@ -24,7 +24,7 @@ public class MainPageTest extends BaseTest {
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
         mainPage.logIn(EMAIL, PASSWORD);
-        assertTrue(basePage.isElementPresent(By.xpath("//*[@data-testid='AppTabBar_Home_Link']")), "Oops! Some troubles(");
+        assertTrue(mainPage.isHomePresent(), "Oops! Some troubles(");
 
     }
 }

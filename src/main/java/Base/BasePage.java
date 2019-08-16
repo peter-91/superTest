@@ -4,6 +4,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+
 public class BasePage {
     private WebDriver driver;
 
@@ -33,17 +37,26 @@ public class BasePage {
         driver.get(URL);
     }
 
-    @FindBy(xpath = "//*[@data-testid='AppTabBar_Home_Link']")
-    private WebElement home;
 
-
-    public boolean isElementPresent(By by) {
+    public  Boolean isElementPresent(WebElement element) {
         try {
-            driver.findElement(by);
+            waitForVisibilityOfElement(element, 10);
+            element.isDisplayed();
             return true;
         } catch (NoSuchElementException e) {
             return false;
 
         }
     }
+
+    public void waitForVisibilityOfElement(WebElement element, int time) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, time);
+            wait.until(visibilityOf(element));
+        } catch (NoSuchElementException e) {
+
+            throw e;
+        }
+    }
 }
+

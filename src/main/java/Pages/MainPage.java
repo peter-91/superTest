@@ -24,9 +24,12 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@class='text-input']")
     private WebElement passwordField;
 
+
     @FindBy(xpath = "//input[@class='EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit']")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//*[@data-testid='AppTabBar_Home_Link']")
+    private WebElement homeButton;
 
 
 
@@ -52,6 +55,11 @@ public class MainPage extends BasePage {
         clickSignIn();
     }
 
+    public Boolean isHomePresent() {
+    return isElementPresent(homeButton);
+    }
 
 }
+
+
 
