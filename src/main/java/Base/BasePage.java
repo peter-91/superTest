@@ -22,6 +22,7 @@ public class BasePage {
     }
 
     public void sendKeys(WebElement element, String string) {
+        waitForVisibilityOfElement(element, 10);
         element.sendKeys(string);
     }
 
@@ -30,12 +31,17 @@ public class BasePage {
     }
 
     public void clickOnElement(WebElement element) {
+        waitForVisibilityOfElement(element, 10);
         element.click();
     }
 
     public void openURL(String URL) {
         driver.get(URL);
     }
+
+    //public void getText(WebElement element) {
+     //   element.getText();
+    //}
 
 
     public  Boolean isElementPresent(WebElement element) {

@@ -1,7 +1,6 @@
 package Pages;
 
 import Base.BasePage;
-import org.jcp.xml.dsig.internal.SignerOutputStream;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,9 +27,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//input[@class='EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//*[@data-testid='AppTabBar_Home_Link']")
-    private WebElement homeButton;
-
 
 
 
@@ -49,15 +45,19 @@ public class MainPage extends BasePage {
         clickOnElement(loginButton);
     }
 
-    public void logIn(String email, String password) {
+//    public void logIn(String email, String password) {
+//        typeEmail(email);
+//        typePassword(password);
+//        clickSignIn();
+//    }
+
+    public HomePage logIn(String email, String password) {
         typeEmail(email);
         typePassword(password);
         clickSignIn();
+        return new HomePage(driver);
     }
 
-    public Boolean isHomePresent() {
-    return isElementPresent(homeButton);
-    }
 
 }
 
