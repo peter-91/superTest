@@ -17,16 +17,11 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@data-testid='AppTabBar_Home_Link']")
     private WebElement homeButton;
 
-    @FindBy (xpath = "//*[@id=/'react-root/']/div/div/div/main/div/div[2]/div/div[1]/div/div[1]/div[1]/div/div/div/div/div[1]/div/h2/span]")
-    private WebElement homeHeading;
+
 
 
     public Boolean isHomePresent() {
         return isElementPresent(homeButton);
-    }
-
-    public String getHomeHeading() {
-       return homeHeading.getText();
     }
 
 

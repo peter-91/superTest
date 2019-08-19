@@ -5,10 +5,10 @@ import Pages.MainPage;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+
 import static org.testng.Assert.assertTrue;
 
-@Test
+
 public class MainPageTest extends BaseTest {
 
     private MainPage mainPage;
@@ -17,14 +17,15 @@ public class MainPageTest extends BaseTest {
     private final String PASSWORD = "Tunein123";
 
 
-
+@Test
     public void loginTest() {
         mainPage = new MainPage(getDriver());
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
-        HomePage homePage = mainPage.logIn(EMAIL, PASSWORD);
+//        HomePage homePage = mainPage.logIn(EMAIL, PASSWORD);
         //assertTrue(homePage.isHomePresent(), "Oops! Some troubles(");
-        assertEquals("Home", homePage.getHomeHeading());
+//        assertEquals("Home", homePage.getHomeHeading());
+      assertTrue(mainPage.logIn(EMAIL,PASSWORD).isHomePresent());
+}
 
-    }
 }
