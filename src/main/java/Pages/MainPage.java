@@ -12,6 +12,7 @@ public class MainPage extends BasePage {
     public WebDriver driver;
 
 
+
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
