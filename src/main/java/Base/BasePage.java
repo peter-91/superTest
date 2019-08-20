@@ -40,11 +40,11 @@ public class BasePage {
     }
 
     //public void getText(WebElement element) {
-     //   element.getText();
+    //   element.getText();
     //}
 
 
-    public  Boolean isElementPresent(WebElement element) {
+    public Boolean isElementPresent(WebElement element) {
         try {
             waitForVisibilityOfElement(element, 10);
             element.isDisplayed();
@@ -64,5 +64,11 @@ public class BasePage {
             throw e;
         }
     }
+
+    public String getElementText(WebElement element) {
+        waitForVisibilityOfElement(element, 10);
+        return element.getText();
+    }
+
 }
 

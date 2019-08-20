@@ -23,9 +23,11 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@class='text-input']")
     private WebElement passwordField;
 
-
     @FindBy(xpath = "//input[@class='EdgeButton EdgeButton--secondary EdgeButton--medium submit js-submit']")
     private WebElement loginButton;
+
+    @FindBy(xpath ="//*[@class='message-text']")
+    private WebElement failLoginMessage;
 
 
 
@@ -58,7 +60,9 @@ public class MainPage extends BasePage {
         return new HomePage(driver);
     }
 
-
+    public String getFailLoginMessageText() {
+    return getElementText(failLoginMessage);
+    }
 }
 
 
