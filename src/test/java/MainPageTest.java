@@ -1,6 +1,5 @@
 import Base.BasePage;
 import Base.BaseTest;
-import Pages.HomePage;
 import Pages.MainPage;
 
 import org.testng.annotations.Test;

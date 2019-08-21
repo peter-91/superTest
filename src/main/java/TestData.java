@@ -7,8 +7,17 @@ public class TestData {
         private final String password;
 
         User(String email, String password) {
-        this.email = email;
-        this.password = password;
+            this.email = email;
+            this.password = password;
         }
+
+        public String NAME() {
+            return email;
+        }
+
+        public String PASSWORD() {
+            return password;
+        }
+
     }
 }
