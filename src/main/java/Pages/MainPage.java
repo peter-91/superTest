@@ -1,6 +1,7 @@
 package Pages;
 
 import Base.BasePage;
+import Data.TestData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,8 @@ public class MainPage extends BasePage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
+
 
     @FindBy(xpath = "//div[@class='StaticLoggedOutHomePage-login']//input[@class='text-input email-input js-signin-email']")
     private WebElement loginField;
@@ -55,9 +58,9 @@ public class MainPage extends BasePage {
 //        clickSignIn();
 //    }
 
-    public HomePage logIn(String email, String password) {
-        typeEmail(email);
-        typePassword(password);
+    public HomePage logIn(TestData.User user) {
+        typeEmail(user.getEmail());
+        typePassword(user.getPassword());
         clickSignIn();
         return new HomePage(driver);
     }

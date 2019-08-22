@@ -1,5 +1,6 @@
 import Base.BasePage;
 import Base.BaseTest;
+import Data.TestData;
 import Pages.MainPage;
 
 import org.testng.annotations.Test;
@@ -13,8 +14,9 @@ public class MainPageTest extends BaseTest {
 
     private MainPage mainPage;
     private BasePage basePage;
-    private final String EMAIL = "tunein.user125@gmail.com";
-    private final String PASSWORD = "unein123";
+    TestData.User user = TestData.User.correctuser;
+    TestData.User incorrectUser = TestData.User.incorrectuser;
+
 
 
     @Test
@@ -24,8 +26,7 @@ public class MainPageTest extends BaseTest {
         basePage.openURL("https://twitter.com");
 //        HomePage homePage = mainPage.logIn(EMAIL, PASSWORD);
         //assertTrue(homePage.isHomePresent(), "Oops! Some troubles(");
-//        assertEquals("Home", homePage.getHomeHeading());
-        assertTrue(mainPage.logIn(EMAIL, PASSWORD).isHomePresent());
+        assertTrue(mainPage.logIn(user).isHomePresent());
     }
 
 
@@ -34,7 +35,7 @@ public class MainPageTest extends BaseTest {
         mainPage = new MainPage(getDriver());
         basePage = new BasePage();
         basePage.openURL("https://twitter.com");
-        mainPage.logIn(EMAIL, PASSWORD);
-        assertEquals("Введенные адрес электронной почты и пароль не совпадают с сохраненными в нашей базе данных. Проверьте правильность введенных данных и повторите попытку.", mainPage.getFailLoginMessageText());
+        mainPage.logIn(incorrectUser);
+        assertEquals("The email and password you entered did not match our records. Please double-check and try again.", mainPage.getFailLoginMessageText());
     }
 }
